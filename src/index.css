@@ -1,206 +1,692 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 * {
-    font-family: "Roboto";
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: #2a2d3e transparent;
 }
 
+*::-webkit-scrollbar { width: 5px; height: 5px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: #2e3147; border-radius: 4px; }
+*::-webkit-scrollbar-thumb:hover { background: #3d4166; }
 
 @layer base {
   :root {
-
     --background: 0 0% 100%;
-
     --foreground: 240 10% 3.9%;
-
     --card: 0 0% 100%;
-
     --card-foreground: 240 10% 3.9%;
-
     --popover: 0 0% 100%;
-
     --popover-foreground: 240 10% 3.9%;
-
     --primary: 240 5.9% 10%;
-
     --primary-foreground: 0 0% 98%;
-
     --secondary: 240 4.8% 95.9%;
-
     --secondary-foreground: 240 5.9% 10%;
-
     --muted: 240 4.8% 95.9%;
-
     --muted-foreground: 240 3.8% 46.1%;
-
     --accent: 240 4.8% 95.9%;
-
     --accent-foreground: 240 5.9% 10%;
-
     --destructive: 0 84.2% 60.2%;
-
     --destructive-foreground: 0 0% 98%;
-
     --border: 240 5.9% 90%;
-
     --input: 240 5.9% 90%;
-
     --ring: 240 10% 3.9%;
-
-    --chart-1: 12 76% 61%;
-
-    --chart-2: 173 58% 39%;
-
-    --chart-3: 197 37% 24%;
-
-    --chart-4: 43 74% 66%;
-
-    --chart-5: 27 87% 67%;
-
-    --radius: 0.5rem
-  }
-  .dark {
-
-    --background: 240 10% 3.9%;
-
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-
-    --input: 240 3.7% 15.9%;
-
-    --ring: 240 4.9% 83.9%;
-
-    --chart-1: 220 70% 50%;
-
-    --chart-2: 160 60% 45%;
-
-    --chart-3: 30 80% 55%;
-
-    --chart-4: 280 65% 60%;
-
-    --chart-5: 340 75% 55%
+    --radius: 0.5rem;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
 
-/* Base styles for the Markdown container */
+/* ═══════════════════════════════════════════════════
+   MARKDOWN PREVIEW — clean document style
+   ═══════════════════════════════════════════════════ */
+
 .markdown-content {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  padding: 20px;
-  background-color: #f9f9f9;
-  color: #333;
-  border-radius: 8px;
+  font-family: 'Inter', Georgia, serif;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: #1e293b;
+  background: #ffffff;
+  max-width: 100%;
+  word-break: break-word;
 }
 
-/* Headings */
+/* ── Headings ── */
 .markdown-content h1,
 .markdown-content h2,
 .markdown-content h3,
 .markdown-content h4,
 .markdown-content h5,
 .markdown-content h6 {
-  color: #2c3e50;
-  font-weight: bold;
-  font-size:xx-large;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin-top: 2.2em;
+  margin-bottom: 0.65em;
 }
 
-/* Links */
+.markdown-content h1 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-top: 0;
+  padding-bottom: 0.45em;
+  border-bottom: 2px solid #e2e8f0;
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.markdown-content h2 {
+  font-size: 1.55rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.markdown-content h3 { font-size: 1.25rem; color: #1e293b; }
+.markdown-content h4 { font-size: 1.05rem; color: #334155; }
+.markdown-content h5 { font-size: 0.95rem; color: #475569; font-weight: 600; }
+.markdown-content h6 { font-size: 0.85rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ── Paragraph & inline ── */
+.markdown-content p {
+  margin: 0 0 1.15em 0;
+  color: #334155;
+}
+
 .markdown-content a {
-  color: #3498db;
-  text-decoration: none;
-}
-
-.markdown-content a:hover {
+  color: #4f46e5;
   text-decoration: underline;
+  text-decoration-color: #a5b4fc;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+.markdown-content a:hover {
+  color: #3730a3;
+  text-decoration-color: #6366f1;
 }
 
-/* Lists */
+.markdown-content strong { font-weight: 700; color: #0f172a; }
+.markdown-content em { font-style: italic; color: #475569; }
+.markdown-content del { text-decoration: line-through; color: #94a3b8; }
+
+/* ── Lists ── */
 .markdown-content ul,
 .markdown-content ol {
-  padding-left: 20px;
+  padding-left: 1.5em;
+  margin: 0 0 1.15em 0;
 }
-
+.markdown-content ul { list-style: none; }
+.markdown-content ul li { position: relative; }
+.markdown-content ul li::before {
+  content: '▸';
+  position: absolute;
+  left: -1.3em;
+  color: #6366f1;
+  font-size: 0.75em;
+  top: 0.35em;
+}
+.markdown-content ol { list-style: decimal; }
+.markdown-content ol li::marker { color: #6366f1; font-weight: 600; }
 .markdown-content li {
-  margin-bottom: 8px;
+  margin-bottom: 0.35em;
+  color: #334155;
+  line-height: 1.75;
+  padding-left: 0.25em;
 }
+.markdown-content li > ul,
+.markdown-content li > ol { margin-top: 0.35em; margin-bottom: 0; }
 
-/* Code blocks */
-.markdown-content pre {
-  background-color: #2d2d2d;
-  color: #fff;
+/* ── Inline code ── */
+.markdown-content :not(pre) > code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.83em;
+  background: #f0f0ff;
+  color: #5b21b6;
+  padding: 0.18em 0.5em;
   border-radius: 5px;
+  border: 1px solid #ddd6fe;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── Code block wrapper (our custom renderer) ── */
+.code-block-wrapper {
+  margin: 0 0 1.5em 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #21213a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.code-block-header {
+  background: #13131f;
+  padding: 0.45em 1.1rem;
+  border-bottom: 1px solid #21213a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.code-block-dots {
+  display: flex;
+  gap: 6px;
+}
+.code-block-dots span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.code-block-dots span:nth-child(1) { background: #ff5f57; }
+.code-block-dots span:nth-child(2) { background: #febc2e; }
+.code-block-dots span:nth-child(3) { background: #28c840; }
+
+.code-lang-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: #818cf8;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.code-block-wrapper pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 1.2rem 1.4rem !important;
+  background: #1a1b2e !important;
+}
+
+/* Critical: let hljs theme control ALL colors inside pre code */
+.code-block-wrapper pre code,
+.markdown-content pre code.hljs,
+.markdown-content pre .hljs {
+  background: transparent !important;
+  color: unset !important;       /* don't override hljs token colors */
+  padding: 0 !important;
+  border: none !important;
+  font-size: 0.875rem !important;
+  border-radius: 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  line-height: 1.7 !important;
+}
+
+/* Fallback pre (no wrapper, plain marked output) */
+.markdown-content pre {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  background: #1a1b2e !important;
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
   overflow-x: auto;
+  margin: 0 0 1.5em 0;
+  border: 1px solid #21213a;
+  line-height: 1.7;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  color: #a9b1d6;               /* default light fallback for un-highlighted text */
 }
 
-.markdown-content code {
-  font-family: 'Courier New', Courier, monospace;
-  padding: 2px;
-  border-radius: 3px;
-}
-
-/* Blockquotes */
+/* ── Blockquote ── */
 .markdown-content blockquote {
-  border-left: 4px solid #3498db;
-  padding-left: 16px;
+  position: relative;
+  border-left: 4px solid #6366f1;
+  background: linear-gradient(to right, #f5f3ff, #fafafa);
+  margin: 0 0 1.4em 0;
+  padding: 0.9em 1.3em 0.9em 1.4em;
+  border-radius: 0 8px 8px 0;
   font-style: italic;
-  color: #555;
-
+}
+.markdown-content blockquote p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.97em;
 }
 
-/* Images */
+/* ── Tables ── */
+.markdown-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 1.5em 0;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.markdown-content thead { background: #1a1b2e; }
+.markdown-content th {
+  padding: 0.8em 1.1em;
+  font-weight: 600;
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #c4c9f5;
+}
+.markdown-content td {
+  padding: 0.65em 1.1em;
+  border-top: 1px solid #f1f5f9;
+  color: #374151;
+  vertical-align: top;
+}
+.markdown-content tr:nth-child(even) td { background: #f8fafc; }
+.markdown-content tr:hover td {
+  background: #f0f4ff;
+  transition: background 0.1s;
+}
+
+/* ── HR ── */
+.markdown-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+  margin: 2.2em 0;
+}
+
+/* ── Images ── */
 .markdown-content img {
   max-width: 100%;
   height: auto;
-  border-radius: 4px;
+  border-radius: 10px;
+  display: block;
+  margin: 0.5em auto 1.5em;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border: 1px solid #e2e8f0;
 }
 
-/* Horizontal Rule */
-.markdown-content hr {
-  border: 0;
-  border-top: 2px solid #ddd;
-  margin: 20px 0;
+/* ── Task lists ── */
+.markdown-content input[type="checkbox"] {
+  margin-right: 0.5em;
+  accent-color: #6366f1;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+/* ═══════════════════════════════════════════════════
+   PDF EXPORT — class toggled on previewRef before capture
+   Switches all dark elements to light/print-safe colors
+   ═══════════════════════════════════════════════════ */
+
+/* Base reset — card styles stripped via inline JS */
+.pdf-export {
+  background: #ffffff !important;
+  color: #1e293b !important;
+}
+
+/* h1 gradient text → solid */
+.pdf-export h1 {
+  -webkit-text-fill-color: #0f172a !important;
+  background: none !important;
+  color: #0f172a !important;
+}
+
+/* Code block container */
+.pdf-export .code-block-wrapper {
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: none !important;
+}
+.pdf-export .code-block-header {
+  background: #f1f5f9 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+.pdf-export .code-lang-label { color: #4f46e5 !important; }
+.pdf-export .code-block-dots span:nth-child(1) { background: #ef4444 !important; }
+.pdf-export .code-block-dots span:nth-child(2) { background: #f59e0b !important; }
+.pdf-export .code-block-dots span:nth-child(3) { background: #22c55e !important; }
+
+/* Light code background */
+.pdf-export .code-block-wrapper pre,
+.pdf-export pre {
+  background: #f8fafc !important;
+  color: #1e293b !important;
+  border: none !important;
+  box-shadow: none !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+/* Reset hljs dark token colors → readable on light bg */
+.pdf-export pre .hljs { background: transparent !important; color: #1e293b !important; }
+.pdf-export .hljs-keyword, .pdf-export .hljs-built_in, .pdf-export .hljs-selector-tag { color: #7c3aed !important; }
+.pdf-export .hljs-string, .pdf-export .hljs-attr { color: #065f46 !important; }
+.pdf-export .hljs-number, .pdf-export .hljs-literal { color: #b45309 !important; }
+.pdf-export .hljs-comment { color: #94a3b8 !important; font-style: italic; }
+.pdf-export .hljs-function, .pdf-export .hljs-title { color: #1d4ed8 !important; }
+.pdf-export .hljs-type, .pdf-export .hljs-class { color: #0369a1 !important; }
+.pdf-export .hljs-tag { color: #b45309 !important; }
+.pdf-export .hljs-operator, .pdf-export .hljs-punctuation { color: #475569 !important; }
+
+/* Table dark header → light */
+.pdf-export thead { background: #f1f5f9 !important; }
+.pdf-export th { color: #475569 !important; }
+
+/* Page break controls */
+.pdf-export h1, .pdf-export h2, .pdf-export h3, .pdf-export h4 {
+  page-break-after: avoid; break-after: avoid;
+}
+.pdf-export .code-block-wrapper, .pdf-export pre,
+.pdf-export blockquote, .pdf-export table, .pdf-export img {
+  page-break-inside: avoid; break-inside: avoid;
+}
+.pdf-export li { page-break-inside: avoid; break-inside: avoid; }
+.pdf-export p { orphans: 3; widows: 3; }
+
+/* ─── old pdf-clean-render kept for reference, unused ─── */
+.pdf-clean-render {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #1e293b;
+  background: #ffffff;
+}
+
+/* Headings */
+.pdf-clean-render h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+  margin: 0 0 18px 0;
+  letter-spacing: -0.02em;
+  -webkit-text-fill-color: #0f172a;
+  background: none;
+}
+.pdf-clean-render h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 5px;
+  margin: 24px 0 12px 0;
+}
+.pdf-clean-render h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 20px 0 10px 0;
+}
+.pdf-clean-render h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  margin: 16px 0 8px 0;
+}
+.pdf-clean-render h5, .pdf-clean-render h6 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin: 14px 0 6px 0;
+}
+
+/* Paragraph */
+.pdf-clean-render p {
+  margin: 0 0 12px 0;
+  color: #334155;
+  orphans: 3;
+  widows: 3;
+}
+
+/* Links */
+.pdf-clean-render a {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* Bold / Italic */
+.pdf-clean-render strong { font-weight: 700; color: #0f172a; }
+.pdf-clean-render em { font-style: italic; }
+
+/* Lists */
+.pdf-clean-render ul, .pdf-clean-render ol {
+  padding-left: 22px;
+  margin: 0 0 12px 0;
+}
+.pdf-clean-render ul { list-style: disc; }
+.pdf-clean-render ol { list-style: decimal; }
+.pdf-clean-render li {
+  margin-bottom: 4px;
+  color: #334155;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Inline code */
+.pdf-clean-render :not(pre) > code {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.82em;
+  background: #f1f5f9;
+  color: #5b21b6;
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Code block — flat light theme, no dark bg */
+.pdf-clean-render .code-block-wrapper,
+.pdf-clean-render .pcr-code {
+  margin: 0 0 16px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  overflow: hidden;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-clean-render .code-block-header {
+  background: #f1f5f9;
+  padding: 5px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pdf-clean-render .code-block-dots { display: flex; gap: 5px; }
+.pdf-clean-render .code-block-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+.pdf-clean-render .code-block-dots span:nth-child(1) { background: #ef4444; }
+.pdf-clean-render .code-block-dots span:nth-child(2) { background: #f59e0b; }
+.pdf-clean-render .code-block-dots span:nth-child(3) { background: #22c55e; }
+
+.pdf-clean-render .code-lang-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: #4f46e5;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pdf-clean-render .code-block-wrapper pre,
+.pdf-clean-render pre {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.65;
+  background: #f8fafc !important;
+  color: #1e293b;
+  margin: 0;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: visible;
+}
+
+/* Light syntax token colors (on white bg) */
+.pdf-clean-render pre code,
+.pdf-clean-render pre .hljs { background: transparent !important; color: #1e293b !important; }
+.pdf-clean-render .hljs-keyword,
+.pdf-clean-render .hljs-built_in,
+.pdf-clean-render .hljs-selector-tag { color: #7c3aed; }
+.pdf-clean-render .hljs-string,
+.pdf-clean-render .hljs-attr { color: #065f46; }
+.pdf-clean-render .hljs-number,
+.pdf-clean-render .hljs-literal { color: #b45309; }
+.pdf-clean-render .hljs-comment,
+.pdf-clean-render .hljs-quote { color: #94a3b8; font-style: italic; }
+.pdf-clean-render .hljs-function,
+.pdf-clean-render .hljs-title { color: #1d4ed8; }
+.pdf-clean-render .hljs-type,
+.pdf-clean-render .hljs-class { color: #0369a1; }
+.pdf-clean-render .hljs-variable,
+.pdf-clean-render .hljs-name { color: #1e293b; }
+.pdf-clean-render .hljs-tag { color: #b45309; }
+.pdf-clean-render .hljs-operator,
+.pdf-clean-render .hljs-punctuation { color: #475569; }
+
+/* Blockquote */
+.pdf-clean-render blockquote {
+  border-left: 3px solid #6366f1;
+  background: #f8f9ff;
+  margin: 0 0 14px 0;
+  padding: 8px 12px;
+  font-style: italic;
+  color: #475569;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.pdf-clean-render blockquote p { margin: 0; }
+
+/* Table */
+.pdf-clean-render table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 14px 0;
+  font-size: 12.5px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  border: 1px solid #e2e8f0;
+}
+.pdf-clean-render thead { background: #f1f5f9; }
+.pdf-clean-render th {
+  padding: 7px 10px;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #475569;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+}
+.pdf-clean-render td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+.pdf-clean-render tr:nth-child(even) td { background: #f8fafc; }
+
+/* HR */
+.pdf-clean-render hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 18px 0;
+}
+
+/* Images */
+.pdf-clean-render img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 8px auto 14px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Page break hints */
+.pdf-clean-render h1,
+.pdf-clean-render h2,
+.pdf-clean-render h3,
+.pdf-clean-render h4 {
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+/* ═══════════════════════════════════════════════════
+   PRINT / PDF
+   ═══════════════════════════════════════════════════ */
+
+@media print {
+  header,
+  .editor-panel,
+  .mobile-tabs {
+    display: none !important;
+  }
+
+  body, html {
+    background: white !important;
+    font-size: 13px;
+  }
+
+  main {
+    display: block !important;
+    height: auto !important;
+  }
+
+  .preview-panel {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  .preview-panel .panel-label { display: none !important; }
+
+  .preview-panel > div:last-child {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .markdown-content {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+    background: white !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  .markdown-content h1 {
+    -webkit-text-fill-color: #0f172a !important;
+    background: none !important;
+  }
+
+  .code-block-wrapper,
+  .markdown-content pre {
+    box-shadow: none !important;
+    border: 1px solid #d1d5db !important;
+    page-break-inside: avoid;
+  }
+
+  .markdown-content h1,
+  .markdown-content h2,
+  .markdown-content h3 { page-break-after: avoid; }
+  .markdown-content table { page-break-inside: avoid; }
+
+  pre, code { white-space: pre-wrap !important; word-break: break-word !important; }
 }
